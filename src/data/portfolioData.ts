@@ -14,6 +14,7 @@ export const PERSONAL_INFO = {
   gpa: "8.48 / 10",
   experienceYears: "2023–2024",
   resumeUrl: "/Julien_Porna_Cisse_Resume.pdf",
+  portraitUrl: "/images/julien-porna-cisse.jpg",
 };
 
 export const CURRENTLY_ITEMS = [

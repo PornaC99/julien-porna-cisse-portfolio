@@ -27,12 +27,25 @@ export const Hero: React.FC = () => {
     }, 2200);
   };
 
+  const persistPortrait = async (file: File) => {
+    try {
+      await fetch('/api/upload-portrait', {
+        method: 'POST',
+        headers: { 'Content-Type': file.type || 'image/jpeg' },
+        body: file,
+      });
+    } catch {
+      // Ignore background persistence errors
+    }
+  };
+
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       const url = URL.createObjectURL(file);
       setCustomImage(url);
       setImageError(false);
+      persistPortrait(file);
     }
   };
 
@@ -43,10 +56,11 @@ export const Hero: React.FC = () => {
       const url = URL.createObjectURL(file);
       setCustomImage(url);
       setImageError(false);
+      persistPortrait(file);
     }
   };
 
-  const photoSrc = customImage || "/julienPhoto.jpeg";
+  const photoSrc = customImage || PERSONAL_INFO.portraitUrl || "/images/julien-porna-cisse.jpg";
 
   return (
     <section

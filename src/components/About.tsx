@@ -47,6 +47,30 @@ export const About: React.FC = () => {
 
           {/* Quick Context Card */}
           <div className="lg:col-span-4 bg-[#121417] border border-[#27292D] rounded-xl p-6">
+            {/* Author Portrait & Micro-ID */}
+            <div className="flex items-center gap-4 mb-5 pb-5 border-b border-[#27292D]">
+              <div className="relative w-16 h-16 rounded-lg overflow-hidden border border-[#27292D] bg-[#0E1013] shrink-0 shadow-md">
+                <img
+                  src={PERSONAL_INFO.portraitUrl || "/images/julien-porna-cisse.jpg"}
+                  alt="Julien Porna Cissé"
+                  className="w-full h-full object-cover object-top filter contrast-[1.02]"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-lg pointer-events-none" />
+              </div>
+              <div className="min-w-0">
+                <h3 className="text-base font-semibold text-[#F2F1ED] truncate">
+                  {PERSONAL_INFO.name}
+                </h3>
+                <span className="font-mono text-xs text-[#55D69B] block mt-0.5">
+                  {PERSONAL_INFO.title}
+                </span>
+                <span className="font-mono text-[11px] text-[#9A9CA3] block mt-0.5">
+                  NIU · BCA 2024–2027
+                </span>
+              </div>
+            </div>
+
             <h3 className="font-mono text-xs uppercase tracking-wider text-[#9A9CA3] mb-4 pb-2 border-b border-[#27292D]">
               PROFILE SNAPSHOT
             </h3>
